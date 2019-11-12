@@ -1,9 +1,14 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 // import { Font } from 'expo';
+import { createIconSet } from '@expo/vector-icons';
 import * as Font from 'expo-font';
 import fontAwesome from '../../assets/fonts/fa-solid-900.ttf';
 
+const CustomIcon = createIconSet({
+  pencil:'\uf303',
+  plus:'\uf067',
+}, 'FontAwesome');
 class CircleButton extends React.Component {
   state = {
     fontLoaded: false,
@@ -15,7 +20,7 @@ class CircleButton extends React.Component {
     this.setState({fontLoaded:true});
   }
   render () {
-    const { style,color } = this.props;
+    const { icon,style,color } = this.props;
     let bgColor = '#e31676';
     let textColor = '#fff';
     if ( color === 'white' ) {
@@ -26,9 +31,7 @@ class CircleButton extends React.Component {
       <View style={[styles.circleButton,style,{backgroundColor:bgColor}]}>
         {
           this.state.fontLoaded ? (
-            <Text style={[styles.circleButtonTitle,{color:textColor}]}>
-            {'\uf303'}
-          </Text>
+            <CustomIcon name={icon} style={[styles.circleButtonTitle,{color:textColor}]} />
           ) : null
         }
       </View>
