@@ -1,14 +1,17 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { TouchableHighlight } from 'react-native-gesture-handler';
 
 class MemoList extends React.Component {
   render () {
     return (
       <View style={styles.memoList}>
-        <View style={styles.memoListItem}>
-          <Text style={styles.memoTitle}>講座のアイテム</Text>
-          <Text style={styles.memoDate}>2019/11/05</Text>
-        </View>
+        <TouchableHighlight onPress={() => { this.props.navigation.navigate('MemoDetail'); }}>
+          <View style={styles.memoListItem}>
+            <Text style={styles.memoTitle}>講座のアイテム</Text>
+            <Text style={styles.memoDate}>2019/11/05</Text>
+          </View>
+        </TouchableHighlight>
         <View style={styles.memoListItem}>
           <Text style={styles.memoTitle}>講座のアイテム</Text>
           <Text style={styles.memoDate}>2019/11/05</Text>
