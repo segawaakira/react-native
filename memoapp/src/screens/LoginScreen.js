@@ -10,7 +10,7 @@ class LoginScreen extends React.Component {
         </Text>
         <TextInput style={styles.input} value="Email Address" />
         <TextInput style={styles.input} value="password" />
-        <Button title="送信" onPress={() => {}} />
+        <Button title="ログインする" onPress={() => { this.props.navigation.navigate('Home'); }} />
       </View>
     );
   }
