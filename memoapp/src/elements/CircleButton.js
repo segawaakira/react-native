@@ -21,7 +21,7 @@ class CircleButton extends React.Component {
     this.setState({fontLoaded:true});
   }
   render () {
-    const { icon,style,color } = this.props;
+    const { icon,style,color, onPress } = this.props;
     let bgColor = '#e31676';
     let textColor = '#fff';
     if ( color === 'white' ) {
@@ -29,7 +29,7 @@ class CircleButton extends React.Component {
       textColor = '#e31676';
     }
     return (
-      <TouchableHighlight style={[styles.container,style]}>
+      <TouchableHighlight style={[styles.container,style]} onPress={onPress} underlayColor="transparent">
         <View style={[styles.circleButton,style,{backgroundColor:bgColor}]}>
           {
             this.state.fontLoaded ? (
@@ -44,6 +44,8 @@ class CircleButton extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
+    width: 48,
+    height: 48,
     position:'absolute',
     bottom:32,
     right:32,
