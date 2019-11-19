@@ -12,7 +12,7 @@ class MemoCreateScreen extends React.Component {
     const { currentUser } = firebase.auth();
     db.collection(`users/${currentUser.uid}/memos`).add({
       body: this.state.body,
-      createdOn: new Date(),
+      createdOn: firebase.firestore.Timestamp.now(),
     })
     .then((docRef) => {
       alert('メモを登録しました');
