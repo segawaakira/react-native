@@ -16,6 +16,7 @@ class MemoCreateScreen extends React.Component {
     })
     .then((docRef) => {
       alert('メモを登録しました');
+      this.props.navigation.goBack();
 //      console.log(docRef.id);
     })
     .catch((error) => {
