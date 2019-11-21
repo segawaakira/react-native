@@ -15,7 +15,6 @@ class MemoCreateScreen extends React.Component {
       createdOn: firebase.firestore.Timestamp.now(),
     })
     .then((docRef) => {
-      alert('メモを登録しました');
       this.props.navigation.goBack();
 //      console.log(docRef.id);
     })

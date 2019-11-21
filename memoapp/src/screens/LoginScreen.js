@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, TextInput, Button } from 'react-native';
+import { StyleSheet, View, Text, TextInput, Button, TouchableOpacity } from 'react-native';
 import firebase from 'firebase';
 import { NavigationActions, StackActions } from 'react-navigation';
 
@@ -10,6 +10,10 @@ class LoginScreen extends React.Component {
   state = {
     email: ENV.USER_EMAIL,
     password: ENV.USER_PW,
+  }
+
+  handlePress() {
+    this.props.navigation.navigate('Signup')
   }
 
   handleSubmit() {
@@ -54,6 +58,9 @@ class LoginScreen extends React.Component {
           secureTextEntry
         />
         <Button title="ログインする" onPress={this.handleSubmit.bind(this)} />
+        <TouchableOpacity style={styles.signup} onPress={ this.handlePress.bind(this) }>
+          <Text style={styles.signupText} >メンバー登録する</Text>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -79,6 +86,13 @@ const styles = StyleSheet.create({
     borderColor:'#ddd',
     padding:8,
   },
+  signup: {
+    marginTop:16,
+    alignSelf:"center"
+  },
+  signupText: {
+    fontSize: 16
+  }
 });
 
 export default LoginScreen;
