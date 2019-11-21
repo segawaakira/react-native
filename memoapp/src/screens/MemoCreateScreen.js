@@ -14,12 +14,11 @@ class MemoCreateScreen extends React.Component {
       body: this.state.body,
       createdOn: firebase.firestore.Timestamp.now(),
     })
-    .then((docRef) => {
+    .then(() => {
       this.props.navigation.goBack();
-//      console.log(docRef.id);
     })
     .catch((error) => {
-//      console.log(error);
+      console.log(error);
     });
   }
   render () {
